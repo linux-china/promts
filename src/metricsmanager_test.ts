@@ -70,10 +70,9 @@ Deno.test("metricscollection get key for", async (): Promise<void> => {
 Deno.test("metricscollection gauge", async (): Promise<void> => {
     const someOtherColl = MetricsManager.getGauge("process_count")
     const gauge = someOtherColl.with({ instance: "cache10.ama" });
-    someOtherColl.with({ instance: "cache11.ama" }).inc();
-    someOtherColl.with({ instance: "cache11.ama" }).inc();
-    someOtherColl.with({ instance: "cache11.ama" }).dec();
-    gauge.inc();
+    someOtherColl.with({ instance: "cache11.ama" }).setRatio(()=> {
+      return 0;
+    })
 
     const expected = `# TYPE process_count gauge
 process_count{instance="cache10.ama"} 1
