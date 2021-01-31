@@ -213,6 +213,10 @@ class MetricsManagerImpl {
             result = result.concat(v.toString());
         }
 
+        for (const [, v] of Object.entries(this.gaugeColl)) {
+          result = result.concat(v.toString());
+        }
+
         return result;
     }
 
