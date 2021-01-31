@@ -7,7 +7,7 @@ import { Metric, SUPRESS_HEADER, Labels } from './types.ts';
 import { toStringLabels } from './utils.ts';
 
 export class Gauge extends Metric {
-    private total = 0;
+    private ratio?: ()=>number;
 
     constructor(name: string, labels: Labels = {}, help = '') {
         super(name, labels, help);
@@ -17,27 +17,19 @@ export class Gauge extends Metric {
         return this.labels;
     }
 
-    getTotal(): number {
-        return this.total;
+    getRatio(): number {
+       if(this.ratio) {
+         return this.ratio();
+       }
+       return 0;
     }
 
     getName(): string {
         return this.name;
     }
 
-    reset(): number {
-        this.total = 0;
-        return this.getTotal();
-    }
-
-    inc(n = 1): number {
-        this.total += n;
-        return this.total;
-    }
-
-    dec(n = 1): number {
-        this.total -= n;
-        return this.total;
+    setRatio(ratio: ()=>number): void {
+      this.ratio = ratio;
     }
 
     toString(supress = SUPRESS_HEADER): string {
@@ -50,7 +42,7 @@ export class Gauge extends Metric {
             result += `# TYPE ${this.name} gauge\n`;
         }
 
-        result += `${this.name}{${toStringLabels(this.labels)}} ${this.total}\n`;
+        result += `${this.name}{${toStringLabels(this.labels)}} ${this.getRatio()}\n`;
         return result;
     }
 }
