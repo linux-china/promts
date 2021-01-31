@@ -100,11 +100,11 @@ class HistogramCollection extends MetricCollection<Histogram> {
  * and by labels.
  */
 class MetricsManagerImpl {
-    private histogramColl: Record<string, MetricCollection<Histogram>>;
-    private counterColl: Record<string, MetricCollection<Counter>>;
-    private gaugeColl: Record<string, MetricCollection<Gauge>>;
-    private intervalID: number;
-    private names = new Set();
+  histogramColl: Record<string, MetricCollection<Histogram>>;
+  counterColl: Record<string, MetricCollection<Counter>>;
+  gaugeColl: Record<string, MetricCollection<Gauge>>;
+  private intervalID: number;
+  names = new Set();
 
     constructor() {
         this.histogramColl = {};
