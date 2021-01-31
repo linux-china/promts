@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertNotEquals, assertEquals } from "https://deno.land/std@0.71.0/testing/asserts.ts";
+import { assertNotEquals, assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
 import {
     MetricsManager,
     create

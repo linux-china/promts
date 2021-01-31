@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertArrayContains } from "https://deno.land/std@0.71.0/testing/asserts.ts";
+import { assertArrayIncludes } from "https://deno.land/std@0.85.0/testing/asserts.ts";
 import { PushGateway } from "./pushgateway.ts";
 import { PUSHGATEWAY_HOST } from "./config.ts";
 import { create } from "./metricsmanager.ts";
@@ -26,7 +26,7 @@ metrics_coll_total{instance="cache10.ama",handler="handler2"} 4
     const expected = [`metrics_coll_total{handler="handler2",instance="cache10.ama",job="test_job"} 4`];
     const responseBody = await response.text();
     const splitArr = responseBody.split('\n')
-    assertArrayContains(splitArr, expected);
+   assertArrayIncludes(splitArr, expected);
 
 });
 
@@ -51,6 +51,6 @@ Deno.test("pushgateway metricsmanager", async (): Promise<void> => {
     const responseBody = await response.text();
     const expected = [`counter_total{instance="cache40.ama",job="test_job"} 6`];
     const splitArr = responseBody.split('\n')
-    assertArrayContains(splitArr, expected);
+    assertArrayIncludes(splitArr, expected);
 
 });
