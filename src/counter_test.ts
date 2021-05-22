@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertThrows, assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
+import { assertThrows, assertEquals } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 import { Counter, HistoryCounter } from "./counter.ts";
 
 const metricTimeoutError = "process_timeout_errors_total";

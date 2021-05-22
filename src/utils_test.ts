@@ -4,7 +4,7 @@
  */
 
 import { toStringLabels } from "./utils.ts";
-import { assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 
 Deno.test("toStringLabels", async (): Promise<void> => {
     let result = toStringLabels({ x: "1", "y": "2" });

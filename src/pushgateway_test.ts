@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertArrayIncludes } from "https://deno.land/std@0.85.0/testing/asserts.ts";
+import { assertArrayIncludes } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 import { PushGateway } from "./pushgateway.ts";
 import { PUSHGATEWAY_HOST } from "./config.ts";
 import { create } from "./metricsmanager.ts";

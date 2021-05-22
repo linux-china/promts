@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertThrows, assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
+import { assertThrows, assertEquals } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 import { Gauge } from "./gauge.ts";
 
 Deno.test("gauge increment", async (): Promise<void> => {

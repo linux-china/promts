@@ -3,7 +3,7 @@
  * See LICENSE file in project root for terms.
  */
 
-import { assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 import { Histogram } from "./histogram.ts";
 
 Deno.test("Histogram", async (): Promise<void> => {
